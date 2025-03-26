@@ -1,93 +1,75 @@
 ## EciCredit - Sistema Bancario
 
-Este repositorio contiene el proyecto del sistema bancario EciCredit, una aplicación full-stack para la gestión de facturas y pagos.
+Este repositorio contiene el backend del proyecto EciCredit, un sistema bancario para la gestión de facturas y pagos.
 
 ### Arquitectura
 
 #### Arquitectura Backend
-El backend está construido utilizando una aplicación Spring Boot con MongoDB como base de datos. La arquitectura sigue un enfoque clásico por capas:
+El backend está implementado como una aplicación Spring Boot con MongoDB como base de datos, siguiendo una arquitectura por capas:
 
 - **Capa de Controladores**: Maneja las peticiones HTTP y delega a los servicios
-- **Capa de Servicios**: Contiene la lógica de negocio
+- **Capa de Servicios**: Implementa la lógica de negocio
 - **Capa de Repositorios**: Interactúa con la base de datos MongoDB
-- **Capa de Modelos**: Contiene los modelos de datos
+- **Capa de Modelos**: Define las entidades del dominio
 
 ![Diagrama de Clases](image-1.png)
 
-#### Arquitectura Frontend
-El frontend está construido con React y styled-components siguiendo una arquitectura basada en componentes:
-- **Servicios**: Capa de comunicación con API (axios)
-- **Componentes**: Componentes UI reutilizables
-- **Estilos**: Estilizado global con styled-components
-
-### Tecnologías Utilizadas
+### Tecnologías Implementadas
 
 #### Backend
 - Java 17
-- Spring Boot 3.4.4
+- Spring Boot 3.1.x
 - MongoDB
 - JaCoCo para cobertura de código
 - Maven para gestión de dependencias
-
-#### Frontend
-- React 19
-- Axios para comunicación con API
-- Styled Components para estilizado
-- React Testing Library para pruebas
+- GitHub actions
 
 ### Cómo Ejecutar el Proyecto
 
 #### Backend
-1. Clonar el repositorio
+1. Clonar este repositorio
 2. Asegurar tener instalados Java 17 y Maven
-3. Navegar al directorio EciCredit-Back
+3. Navegar al directorio raíz
 4. Ejecutar `mvn spring-boot:run`
+5. La API estará disponible en http://localhost:8080
 
-#### Frontend
-1. Navegar al directorio ecibank-front
-2. Ejecutar `npm install`
-3. Ejecutar `npm start`
-4. Acceder a la aplicación en http://localhost:3000
+### Endpoints de API Implementados
 
-### Endpoints de API
+El backend actualmente proporciona los siguientes endpoints:
 
-El backend proporciona los siguientes endpoints de API:
-
-- `GET /api/bills/user/{userId}` - Obtener todas las facturas de un usuario específico
-- `POST /api/bills` - Crear una nueva factura
+- `GET /api/bills/user/{userId}` - Obtiene todas las facturas de un usuario específico
+- `POST /api/bills` - Crea una nueva factura
 
 ### Cobertura de Código
 
-El proyecto mantiene una alta cobertura de pruebas utilizando JaCoCo:
+El proyecto mantiene una cobertura de pruebas utilizando JaCoCo:
 
 ![Cobertura de Pruebas](image.png)
 
-### Escenarios de la Aplicación
+### Funcionalidades Implementadas
 
-#### Listado de Facturas de Usuario
-La aplicación permite ver todas las facturas asociadas a un ID de usuario. Actualmente, el sistema tiene facturas para el usuario con ID 12345.
+#### Consulta de Facturas de Usuario
+El sistema permite consultar las facturas asociadas a un ID de usuario. Actualmente, hay facturas disponibles para el usuario con ID 12345.
 
 ![Listado de Facturas de Usuario](image-2.png)
 
-#### Vista de Detalles de Factura
-Al seleccionar una factura, los usuarios pueden ver información detallada incluyendo el estado, fecha de creación, monto total y elementos individuales.
-
-En el back solo hay un usuario que es que se vé ahí
+#### Detalles de Factura
+El sistema proporciona información detallada de las facturas incluyendo estado, fecha de creación, monto total y elementos individuales.
 
 ![Detalles de Factura](image-3.png)
 
-#### Creación de Nueva Factura
-Los usuarios pueden crear nuevas facturas completando la información requerida.
+#### Creación de Facturas
+La API permite crear nuevas facturas con la información requerida.
 
 ![Creación de Factura](image-4.png)
 
-#### Añadir Elementos a una Factura
-La interfaz permite añadir múltiples elementos a una factura antes de enviarla.
+#### Gestión de Elementos de Factura
+Se pueden añadir múltiples elementos a una factura.
 
 ![Añadir Elementos](image-5.png)
 
-#### Procesamiento de Transacción
-Después del envío, el sistema procesa la transacción y muestra un estado (aprobada/rechazada).
+#### Procesamiento de Transacciones
+El sistema procesa las transacciones y devuelve el estado resultante.
 
 ![Transacción Aprobada](image-6.png)
 
@@ -96,11 +78,13 @@ Después del envío, el sistema procesa la transacción y muestra un estado (apr
 El backend está desplegado en Azure y accesible en:
 https://dragon-ete4agc5byajakbd.canadacentral-01.azurewebsites.net/
 
-crear bill
-![alt text](image-4.png)
+### Frontend Repository
 
-añadir items
-![alt text](image-5.png)
+El código fuente del frontend de EciCredit está disponible en un repositorio separado:
+[EciCreditFront](https://github.com/cris-eci/EciCreditFront)
 
-transaction aproved
-![alt text](image-6.png)
+Para obtener información sobre la implementación y ejecución del frontend, por favor consulte el repositorio correspondiente.
+
+### GitHub Actions y despliegue en azure
+![alt text](image-7.png)
+![alt text](image-8.png)
