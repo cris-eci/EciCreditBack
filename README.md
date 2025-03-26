@@ -14,6 +14,9 @@ El backend está implementado como una aplicación Spring Boot con MongoDB como 
 
 ![Diagrama de Clases](image-1.png)
 
+- **Diagrama de componentes**:
+![alt text](image-9.png)
+
 ### Tecnologías Implementadas
 
 #### Backend
